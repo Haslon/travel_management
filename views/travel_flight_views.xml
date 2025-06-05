@@ -24,6 +24,7 @@
                             <field name="airline"/>
                             <field name="destination_id"/>
                             <field name="departure_datetime"/>
+                            <field name="managing_agency_id"/>
                         </group>
                         <div class="oe_button_box" name="button_box">
                             <button name="action_create_rating" type="object" class="oe_stat_button" icon="fa-star">
