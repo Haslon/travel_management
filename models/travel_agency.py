@@ -1,5 +1,4 @@
-from odoo import models, fields
-
+from odoo import models, fields, api
 class TravelAgency(models.Model):
     _name = 'travel.agency'
     _description = 'Travel Agency'
