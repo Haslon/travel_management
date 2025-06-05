@@ -17,6 +17,7 @@
         'account', # Para multi-moneda y posiblemente facturación futura
     ],
     'data': [
+        'security/travel_management_groups.xml',
         'security/ir.model.access.csv',
         'security/travel_management_security.xml',
         'views/travel_destination_views.xml',
