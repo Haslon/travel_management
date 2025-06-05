@@ -21,6 +21,12 @@ class TravelFlight(models.Model):
         'travel.destination',
         string='Origin'
     )
+    rating_ids = fields.One2many(
+        'travel.rating',
+        'flight_id',
+        string='Ratings',
+        domain=[('rated_item_type', '=', 'flight')]
+    )
     # Campo para moneda, se usará en paquetes y potencialmente en costos de vuelo
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company)
     currency_id = fields.Many2one(related='company_id.currency_id', string='Currency', readonly=True)
@@ -34,3 +40,30 @@ class TravelFlight(models.Model):
         ('flight_number_departure_uniq', 'unique(flight_number, departure_datetime, airline)',
          'Flight number must be unique for the given airline and departure time.')
     ]
+
+    rating_count = fields.Integer(compute='_compute_rating_stats', string="Rating Count")
+    average_flight_rating = fields.Float(compute='_compute_rating_stats', string="Avg. Rating", digits=(3,2))
+
+    @api.depends('rating_ids', 'rating_ids.rating')
+    def _compute_rating_stats(self):
+        for flight in self:
+            ratings = flight.rating_ids.filtered(lambda r: r.rating)
+            flight.rating_count = len(ratings)
+            if ratings:
+                flight.average_flight_rating = sum(r.rating for r in ratings) / len(ratings)
+            else:
+                flight.average_flight_rating = 0.0
+
+    def action_create_rating(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Rate Flight',
+            'res_model': 'travel.rating',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {
+                'default_flight_id': self.id,
+                'default_rated_item_type': 'flight',
+            }
+        }

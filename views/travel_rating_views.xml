@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <record id="view_travel_rating_tree" model="ir.ui.view">
+            <field name="name">travel.rating.tree</field>
+            <field name="model">travel.rating</field>
+            <field name="arch" type="xml">
+                <tree string="Ratings">
+                    <field name="rated_item_type"/>
+                    <field name="partner_id"/>
+                    <field name="rating"/>
+                    <field name="comment"/>
+                    <field name="rating_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_travel_rating_form" model="ir.ui.view">
+            <field name="name">travel.rating.form</field>
+            <field name="model">travel.rating</field>
+            <field name="arch" type="xml">
+                <form string="Rating">
+                    <sheet>
+                        <group>
+                            <field name="rated_item_type"/>
+                            <field name="partner_id"/>
+                            <field name="rating"/>
+                            <field name="comment"/>
+                            <field name="rating_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_travel_rating_search" model="ir.ui.view">
+            <field name="name">travel.rating.search</field>
+            <field name="model">travel.rating</field>
+            <field name="arch" type="xml">
+                <search string="Search Ratings">
+                    <field name="rated_item_type"/>
+                    <field name="rating"/>
+                    <filter string="Rating Score" name="group_by_rating" context="{'group_by':'rating'}"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_travel_rating" model="ir.actions.act_window">
+            <field name="name">Ratings</field>
+            <field name="res_model">travel.rating</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_travel_rating_search"/>
+        </record>
+    </data>
+</odoo>

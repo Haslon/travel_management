@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="action_report_destination_popularity" model="ir.actions.report">
+            <field name="name">Destination Popularity</field>
+            <field name="model">travel.destination</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">travel_management.report_destination_popularity_template</field>
+            <field name="report_file">travel_management.report_destination_popularity_template</field>
+            <field name="print_report_name">'Destination Popularity - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_travel_destination"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

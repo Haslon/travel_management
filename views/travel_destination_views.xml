@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+        <record id="view_travel_destination_tree" model="ir.ui.view">
+            <field name="name">travel.destination.tree</field>
+            <field name="model">travel.destination</field>
+            <field name="arch" type="xml">
+                <tree string="Destinations">
+                    <field name="name"/>
+                    <field name="country_id"/>
+                    <field name="airport_code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_travel_destination_form" model="ir.ui.view">
+            <field name="name">travel.destination.form</field>
+            <field name="model">travel.destination</field>
+            <field name="arch" type="xml">
+                <form string="Destination">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name" placeholder="e.g., Paris"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="country_id"/>
+                                <field name="airport_code"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <field name="description" placeholder="Detailed description of the destination..."/>
+                            </page>
+                            <page string="Associated Agencies">
+                                <field name="agency_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_travel_destination_search" model="ir.ui.view">
+            <field name="name">travel.destination.search</field>
+            <field name="model">travel.destination</field>
+            <field name="arch" type="xml">
+                <search string="Search Destinations">
+                    <field name="name"/>
+                    <field name="country_id"/>
+                    <field name="airport_code"/>
+                    <filter string="Country" name="filter_by_country" context="{'group_by':'country_id'}"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_travel_destination" model="ir.actions.act_window">
+            <field name="name">Destinations</field>
+            <field name="res_model">travel.destination</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_travel_destination_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new travel destination.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
