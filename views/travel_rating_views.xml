@@ -3,7 +3,7 @@
         <record id="view_travel_rating_tree" model="ir.ui.view">
             <field name="name">travel.rating.tree</field>
             <field name="model">travel.rating</field>
-            <field name="arch" type="xml">
+            <field name="arch">
                 <tree string="Ratings">
                     <field name="rated_item_type"/>
                     <field name="partner_id"/>
@@ -17,7 +17,7 @@
         <record id="view_travel_rating_form" model="ir.ui.view">
             <field name="name">travel.rating.form</field>
             <field name="model">travel.rating</field>
-            <field name="arch" type="xml">
+            <field name="arch">
                 <form string="Rating">
                     <sheet>
                         <group>
@@ -35,7 +35,7 @@
         <record id="view_travel_rating_search" model="ir.ui.view">
             <field name="name">travel.rating.search</field>
             <field name="model">travel.rating</field>
-            <field name="arch" type="xml">
+            <field name="arch">
                 <search string="Search Ratings">
                     <field name="rated_item_type"/>
                     <field name="rating"/>

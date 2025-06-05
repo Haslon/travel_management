@@ -3,7 +3,7 @@
         <record id="view_travel_flight_tree" model="ir.ui.view">
             <field name="name">travel.flight.tree</field>
             <field name="model">travel.flight</field>
-            <field name="arch" type="xml">
+            <field name="arch">
                 <tree string="Flights">
                     <field name="name"/>
                     <field name="airline"/>
@@ -16,7 +16,7 @@
         <record id="view_travel_flight_form" model="ir.ui.view">
             <field name="name">travel.flight.form</field>
             <field name="model">travel.flight</field>
-            <field name="arch" type="xml">
+            <field name="arch">
                 <form string="Flight">
                     <sheet>
                         <group>
@@ -42,7 +42,7 @@
         <record id="view_travel_flight_search" model="ir.ui.view">
             <field name="name">travel.flight.search</field>
             <field name="model">travel.flight</field>
-            <field name="arch" type="xml">
+            <field name="arch">
                 <search string="Search Flights">
                     <field name="airline"/>
                     <field name="destination_id"/>
