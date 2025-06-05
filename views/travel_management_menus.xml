@@ -1,40 +1,40 @@
 <odoo>
-    <data>
-        <menuitem id="menu_travel_management_root"
-                  name="Travel Management"
-                  sequence="10"
-                  web_icon="travel_management,static/description/icon.png"/> <menuitem id="menu_travel_destination"
-                  name="Destinations"
-                  parent="menu_travel_management_root"
-                  action="action_travel_destination"
+    
+      <menuitem id="menu_travel_management_root"
+            name="Travel Management"
+            sequence="10"
+            web_icon="travel_management,static/description/icon.png"/> <menuitem id="menu_travel_destination"
+            name="Destinations"
+            parent="menu_travel_management_root"
+            action="action_travel_destination"
+            sequence="10"/>
+
+      <menuitem id="menu_travel_flight"
+            name="Flights"
+            parent="menu_travel_management_root"
+            action="travel_management.action_travel_flight" sequence="20"/>
+
+      <menuitem id="menu_travel_agency"
+            name="Agencies"
+            parent="menu_travel_management_root"
+            action="travel_management.action_travel_agency"
+            sequence="30"/>
+
+      <menuitem id="menu_travel_package"
+            name="Tour Packages"
+            parent="menu_travel_management_root"
+            action="travel_management.action_travel_package"
+            sequence="40"/>
+
+      <menuitem id="menu_travel_configuration"
+            name="Configuration & Ratings"
+            parent="menu_travel_management_root"
+            sequence="100"/>
+
+      <menuitem id="menu_travel_rating"
+                  name="Ratings"
+                  parent="menu_travel_configuration"
+                  action="travel_management.action_travel_rating"
                   sequence="10"/>
-
-        <menuitem id="menu_travel_flight"
-                  name="Flights"
-                  parent="menu_travel_management_root"
-                  action="travel_management.action_travel_flight" sequence="20"/>
-
-        <menuitem id="menu_travel_agency"
-                  name="Agencies"
-                  parent="menu_travel_management_root"
-                  action="travel_management.action_travel_agency"
-                  sequence="30"/>
-
-        <menuitem id="menu_travel_package"
-                  name="Tour Packages"
-                  parent="menu_travel_management_root"
-                  action="travel_management.action_travel_package"
-                  sequence="40"/>
-
-        <menuitem id="menu_travel_configuration"
-                  name="Configuration & Ratings"
-                  parent="menu_travel_management_root"
-                  sequence="100"/>
-
-            <menuitem id="menu_travel_rating"
-                      name="Ratings"
-                      parent="menu_travel_configuration"
-                      action="travel_management.action_travel_rating"
-                      sequence="10"/>
-            </data>
+            
 </odoo>

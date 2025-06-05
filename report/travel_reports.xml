@@ -1,5 +1,5 @@
 <odoo>
-    <data>
+    
         <record id="action_report_destination_popularity" model="ir.actions.report">
             <field name="name">Destination Popularity</field>
             <field name="model">travel.destination</field>
@@ -10,5 +10,5 @@
             <field name="binding_model_id" ref="model_travel_destination"/>
             <field name="binding_type">report</field>
         </record>
-    </data>
+    
 </odoo>

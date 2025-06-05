@@ -1,27 +1,27 @@
 <odoo>
-    <data>
-        <!-- Solo puede ver/editar su propia agencia -->
-        <record id="travel_agency_self_rule" model="ir.rule">
-            <field name="name">Travel Agency: Own Data Only</field>
-            <field name="model_id" ref="model_travel_agency"/>
-            <field name="groups" eval="[(4, ref('travel_management.group_travel_agency'))]"/>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_unlink" eval="False"/>
-            <field name="domain_force">[('partner_id', '=', user.partner_id.commercial_partner_id.id)]</field>
-        </record>
+    
+    <!-- Solo puede ver/editar su propia agencia -->
+    <record id="travel_agency_self_rule" model="ir.rule">
+        <field name="name">Travel Agency: Own Data Only</field>
+        <field name="model_id" ref="model_travel_agency"/>
+        <field name="groups" eval="[(4, ref('travel_management.group_travel_agency'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="domain_force">[('partner_id', '=', user.partner_id.commercial_partner_id.id)]</field>
+    </record>
 
-        <!-- El manager/admin puede ver y editar todas las agencias -->
-        <record id="travel_agency_manager_all_access_rule" model="ir.rule">
-            <field name="name">Travel Agency: Manager Full Access</field>
-            <field name="model_id" ref="model_travel_agency"/>
-            <field name="groups" eval="[(4, ref('travel_management.group_travel_manager'))]"/>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="True"/>
-            <field name="perm_unlink" eval="True"/>
-            <field name="domain_force">[(1,'=',1)]</field>
-        </record>
-    </data>
+    <!-- El manager/admin puede ver y editar todas las agencias -->
+    <record id="travel_agency_manager_all_access_rule" model="ir.rule">
+        <field name="name">Travel Agency: Manager Full Access</field>
+        <field name="model_id" ref="model_travel_agency"/>
+        <field name="groups" eval="[(4, ref('travel_management.group_travel_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+    </record>
+    
 </odoo>
